@@ -1,0 +1,49 @@
+{
+  "$schema": "https://hypar.io/Schemas/Function.json",
+  "id": "0b9e2b55-fa2c-4d6c-b45f-44a319716f6c",
+  "name": "Cross-Function Override Facade Example",
+  "description": "The CrossFunctionOverrideFacadeExample function.",
+  "model_dependencies": [
+    {
+      "name": "Envelope"
+    }
+  ],
+  "language": "C#",
+  "overrides": {
+    "Facade Grid Settings": {
+      "context": "[*discriminator=Elements.Envelope]",
+      "dependency": "Envelope",
+      "identity": {
+        "Profile": {
+          "type": "object",
+          "properties": {
+            "Perimeter": {
+              "$ref": "https://hypar.io/Schemas/Geometry/Polygon.json"
+            }
+          }
+        },
+        "Elevation": {
+          "type": "number"
+        }
+      },
+      "schema": {
+        "X Grid Size": {
+          "type": "number",
+          "$hyparUnitType": "length",
+          "default": 3
+        },
+        "Y Grid Size": {
+          "type": "number",
+          "$hyparUnitType": "length",
+          "default": 3
+        }
+      }
+    }
+  },
+  "element_types": [
+    "https://prod-api.hypar.io/schemas/Envelope"
+  ],
+  "repository_url": "https://github.com/hypar-io/function",
+  "last_updated": "0001-01-01T00:00:00",
+  "cli_version": "0.9.7-alpha.0"
+}
